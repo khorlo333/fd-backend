@@ -15,7 +15,7 @@ const port = process.env.PORT;
 app.get("/", (req, res) => {
   res.send("ffdsf");
 });
-app.use("/category", categoryRoute);
+app.use("/categories", categoryRoute);
 
 app.listen(port, () => {
   console.log(`new server starts at: ${port}`);

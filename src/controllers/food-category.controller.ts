@@ -36,3 +36,18 @@ export const deleteFoodCategory = async (req: Request, res: Response) => {
     res.status(500).json({ message: "Error in  deleteFoodCategory", error });
   }
 };
+export const editFoodCategory = async (req: Request, res: Response) => {
+  const { foodCategoryId } = req.params;
+  const updateReq = req.body;
+  try {
+    const updateCategory = await foodCategoryModel.updateOne(
+      { _id: foodCategoryId },
+      updateReq
+    );
+    res
+      .status(200)
+      .json({ message: "Successfully updated category", data: updateCategory });
+  } catch (error) {
+    res.status(500).json({ message: "Error in  updateCategory", error });
+  }
+};

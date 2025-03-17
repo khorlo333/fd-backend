@@ -4,6 +4,7 @@ import { connectMongoDb } from "./data-base/db";
 import categoryRoute from "./routes/food-category.route";
 import cors from "cors";
 import bodyParser from "body-parser";
+import foodRoute from "./routes/food.route";
 configDotenv();
 connectMongoDb();
 
@@ -16,6 +17,7 @@ app.get("/", (req, res) => {
   res.send("ffdsf");
 });
 app.use("/categories", categoryRoute);
+app.use("/foods", foodRoute);
 
 app.listen(port, () => {
   console.log(`new server starts at: ${port}`);
